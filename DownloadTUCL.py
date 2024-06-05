@@ -22,6 +22,9 @@ def download_pdf(url, filename):
     with open(filename, 'wb') as f:
         f.write(response.content)
 
+# Get the absolute path of the "tucl" folder
+base_path = os.path.abspath("tucl")
+
 # Step 1: Modify each page to have proper links to other pages in the page number widget
 for page_num in range(1, 8):
     page_url = base_url + str(page_num)
@@ -76,17 +79,17 @@ for page_num in range(1, 8):
                 pdf_filename = f"tucl/{modified_link_text}_{pdf_links.index(pdf_link) + 1}.pdf"
                 download_pdf(pdf_url, pdf_filename)
                 # Modify paper-page HTML to correctly open the PDF file
-                pdf_full_path = os.path.abspath(pdf_filename)
+                pdf_relative_path = os.path.relpath(pdf_filename, base_path)
                 with open(paper_filename, "r", encoding="utf-8") as f:
                     html_content = f.read()
-                    html_content = html_content.replace(pdf_link["href"], pdf_full_path)
+                    html_content = html_content.replace(pdf_link["href"], f"tucl/{os.path.basename(pdf_filename)}")
                 with open(paper_filename, "w", encoding="utf-8") as f:
                     f.write(html_content)
             # Store paper-page path in dictionary with both modified and original link text
             paper_page_paths[modified_link_text] = {
                 "modified_link_text": modified_link_text,
                 "original_link_text": link_text,
-                "path": os.path.abspath(paper_filename)
+                "path": os.path.relpath(paper_filename, base_path)
             }
 
 # Step 3: Update links in all page HTML files to point to the correct paper-pages
@@ -94,11 +97,11 @@ for page_num in range(1, 8):
     page_filename = f"tucl/page_{page_num}.html"
     with open(page_filename, "r", encoding="utf-8") as f:
         page_soup = BeautifulSoup(f.read(), 'html.parser')
-    for link in page_soup.find_all('a'):
+    for link in page_soup.find_all('a'): 
         # Check if the link text matches the modified paper-page link
         link_text = link.get_text().strip().replace(":", "").replace("/", "-")
         if link_text in paper_page_paths:
-            # Replace the href attribute with the absolute path of the paper-page
+            # Replace the href attribute with the relative path of the paper-page
             link['href'] = paper_page_paths[link_text]["path"]
     # Write updated page HTML content to file
     with open(page_filename, "w", encoding="utf-8") as f:
