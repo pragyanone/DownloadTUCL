@@ -1,5 +1,5 @@
 # tl;dr
-If you want thesis files for Department of Civil Enginering, download [this folder](https://drive.google.com/drive/folders/1B_prOMKvjyQcjkBLBhmMjrqoN1HDtgJp?usp=drive_link) to some root directory (C:\\, D:\\, E:\\, etc) and **page_1.html**.
+If you want thesis files for Department of Civil Enginering, download [this folder](https://drive.google.com/drive/folders/1B_prOMKvjyQcjkBLBhmMjrqoN1HDtgJp?usp=drive_link) to some root directory (C:\\, D:\\, E:\\, etc) and open **page_1.html**.
 
 # DownloadTUCL
 
