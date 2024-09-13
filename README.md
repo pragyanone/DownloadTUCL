@@ -9,6 +9,8 @@ If you want thesis files for Department of Civil Enginering, download [this fold
     - Download the folder and move it to the root of a drive (e.g., C:\, D:\, E:\). <br>Nested locations may not work.
     - Then open **page_1.html** and browse.
 
+The python code was developed using ChatGPT.
+
 ## Usage
 1. Download the script **DownloadTUCL.py** and save it in a root directory.
 2. Update the `base_url` to reflect your chosen collection.
