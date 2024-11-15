@@ -3,7 +3,7 @@ If you want thesis files for Department of Civil Enginering, download [this fold
 
 # DownloadTUCL
 
-- The [Tribhuvan University Central Library (eLibrary)](https://elibrary.tucl.edu.np/) website is frequently inaccessible during the day.
+- The [Tribhuvan University Central Library (eLibrary)](https://elibrary.tucl.edu.np/) website is frequently inaccessible.
 - This Python script downloads all thesis papers within a specified collection *(Department)* (e.g., Department of Civil Engineering).
 - Files downloaded for the [Department of Civil Engineering](https://elibrary.tucl.edu.np/collections/1f1fdc5f-96bf-41b1-b0d9-21ae72697297) as of 2024-06-04 can be found [here](https://drive.google.com/drive/folders/1B_prOMKvjyQcjkBLBhmMjrqoN1HDtgJp?usp=drive_link).
     - Download the folder and move it to the root of a drive (e.g., C:\, D:\, E:\). <br>Nested locations may not work.
